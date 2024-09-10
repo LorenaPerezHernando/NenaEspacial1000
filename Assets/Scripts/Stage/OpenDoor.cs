@@ -15,7 +15,7 @@ public class OpenDoor : MonoBehaviour
 
     private void Update()
     {
-        transformY = transformY.CompareTo(door.transform.position);
+        transformY = Mathf.RoundToInt(door.position.y);
     }
     private void OnTriggerEnter(Collider other)
     {

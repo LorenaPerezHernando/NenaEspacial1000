@@ -18,6 +18,7 @@ public class CloseDoor : MonoBehaviour
         
         s_opendoor = GetComponentInParent<OpenDoor>();
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
