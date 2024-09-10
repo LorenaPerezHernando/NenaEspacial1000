@@ -5,51 +5,28 @@ using UnityEngine;
 public class CloseDoor : MonoBehaviour
 {
     public Transform door;
-
-
-    //[SerializeField] int transformY;
     private int highPosY = 1;
-
     public OpenDoor s_opendoor;
 
-
-    private void Start()
+    public IEnumerator Close()
     {
-        
-        s_opendoor = GetComponentInParent<OpenDoor>();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
+        //Cerrar si el interruptor ha sido pisado (booleana doorOpened) 
+        while (s_opendoor.transformY != highPosY && s_opendoor.doorOpened == true)
         {
-            StartCoroutine(Close());
+           Debug.Log("Subiendo puerta");
+            s_opendoor.transformY++;
+            door.position = new Vector3(door.position.x, s_opendoor.transformY, door.position.z);
+            yield return new WaitForSeconds(0.3f);
+
         }
+
+        //Se da cuenta si esta cerrada, entonces cambia bool para poder abrir
+        if (s_opendoor.transformY == highPosY)
+        {
+            s_opendoor.doorOpened = false;
+            Debug.Log("La puerta ahora esta cerrada");
+        }
+
+        yield return null;
     }
-
-   
-
-    IEnumerator Close()
-    {
-        
-            while (s_opendoor.transformY != highPosY && s_opendoor.inside == false)
-            {
-                Debug.Log("Subiendo puerta");
-                s_opendoor.transformY++;
-                door.position = new Vector3(door.position.x, s_opendoor.transformY, door.position.z);
-                yield return new WaitForSeconds(0.3f);
-                
-            }
-            if (s_opendoor.transformY != highPosY)
-                 s_opendoor.inside = false; 
-                
-
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        s_opendoor.inside = false;
-    }
-
-
 }

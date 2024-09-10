@@ -5,11 +5,31 @@ using UnityEngine;
 public class ActivateClose : MonoBehaviour
 {
     public OpenDoor s_openDoor;
-    public GameObject s_closeDoor;
-    private void OnTriggerExit(Collider other)
+    public CloseDoor s_closeDoor;
+
+
+
+    private void Start()
     {
         
-        s_openDoor.inside = true;
-        s_closeDoor.gameObject.GetComponent<CloseDoor>().enabled = true; 
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        s_openDoor.doorOpened = false;
+        StartCoroutine(Activar());
+    }
+
+    IEnumerator Activar()
+    {
+        yield return new WaitForSeconds(5);
+
+        if(s_openDoor.doorOpened == false)
+        {
+            s_closeDoor.gameObject.GetComponent<CloseDoor>().enabled = true; 
+            
+        }
+
     }
 }
