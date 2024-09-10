@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7897736957061432236}
   m_Layer: 0
   m_Name: Herb
-  m_TagString: Mush
+  m_TagString: Hierba
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
