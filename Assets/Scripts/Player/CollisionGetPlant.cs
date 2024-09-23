@@ -2,28 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionDestroy : MonoBehaviour
+public class CollisionGetPlant : MonoBehaviour
 {
-    private Inventario s_Inventario;
+    private playerData s_playerData;
+    [SerializeField] bool listoParaCosecha;
+
     private void OnCollisionEnter(Collision collision)
     {
-        
+        GetPlant();
     }
-
-    IEnumerator GetPlant()
+    void GetPlant()
     {
-        yield return new WaitForSeconds(2); 
         if(gameObject.tag == "Flor")
         {
-            s_Inventario.flor++;
+            s_playerData.flor++;
         }
         if(gameObject.tag == "Mush")
         {
-            s_Inventario.mushrooms++;
+            s_playerData.mushrooms++;
         }
         if(gameObject.tag == "Hierba")
         {
-            s_Inventario.hierbas++; 
+            s_playerData.hierbas++; 
         }
     }
 }

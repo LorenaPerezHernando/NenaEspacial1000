@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3366379907838006509}
+  - component: {fileID: 7520915467785200546}
+  - component: {fileID: 5116597852893262211}
   - component: {fileID: 8033777055606037608}
   - component: {fileID: 4933266860449226061}
-  - component: {fileID: 7897736957061432236}
+  - component: {fileID: 3927871948073660846}
   m_Layer: 0
   m_Name: Herb
   m_TagString: Hierba
@@ -28,12 +30,44 @@ Transform:
   m_GameObject: {fileID: 6512661488034020875}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.09, y: -1.2502995, z: 8.430269}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.37688, y: 2.8496, z: 1.6672003}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7520915467785200546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6512661488034020875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe41d9f92f1b714cbf41bd78d83d104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highPosY: 0
+  PosActualY: -1
+  plantTransform: {x: 0, y: 0, z: 0}
+  crecimiento: 0.2
+  fullyGrown: 0
+--- !u!114 &5116597852893262211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6512661488034020875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438794886b91131448cf7a666fdfdb65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabPlant: {fileID: 6512661488034020875}
+  posInitialGrowth: 0
+  plantFullyGrown: 0
 --- !u!33 &8033777055606037608
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -84,8 +118,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7897736957061432236
-SphereCollider:
+--- !u!65 &3927871948073660846
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,5 +137,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1.0000001, z: 0.66}
   m_Center: {x: 0, y: 0, z: 0}
