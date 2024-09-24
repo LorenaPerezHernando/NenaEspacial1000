@@ -9,11 +9,10 @@ public class playerData : MonoBehaviour
 
     private Vector3 lastPlayerPosition;
     private bool lastPlayerLife;
-    private int lastLevel; 
+    private int lastLevel;
 
     public Vector3 playerPosition;
-    public Vector3 playerRotation;
-    public Transform playerTransform;
+    //public Transform playerPosition;
     public bool extraLife;
     public int nivel;
 
@@ -25,35 +24,52 @@ public class playerData : MonoBehaviour
 
     private void Start()
     {
-        s_saveSystem = GetComponent<SaveSystem>();
+        playerPosition = transform.position;
         StartCoroutine(GuardarDatosAutomatico());
+
     }
-    public playerData(Vector3 playerPosition, Vector3 playerRotation, bool extraLife, int nivel)
+    public playerData(Vector3 playerPosition, bool extraLife, int nivel)
     {
-        playerTransform.position = playerPosition;
-        playerTransform.eulerAngles = playerRotation;
+        this.playerPosition = playerPosition;
+        //playerTransform.eulerAngles = playerRotation;
         this.extraLife = extraLife;
         this.nivel = nivel;
     }
 
     private void Update()
     {
-        StartCoroutine(GuardarDatosAutomatico());        
+         
+    }
+
+    public void guardarButton()
+    {
+        StartCoroutine(GuardarDatosAutomatico());
     }
 
     IEnumerator GuardarDatosAutomatico()
     {
-        yield return new WaitForSeconds(3f);
-        
+        Debug.Log("Intento de guardado");
+        //!!! IMPRIMIR VALOR VARIABLES
         if (playerPosition != lastPlayerPosition || extraLife != lastPlayerLife || nivel != lastLevel)
         {
             Debug.Log("Datos Guardados");
-            s_saveSystem.GuardarDatos(playerTransform.position, playerTransform.eulerAngles, extraLife, nivel);
+            s_saveSystem.GuardarDatos(playerPosition, extraLife, nivel);
 
             // Actualizar las últimas posiciones y rotaciones conocidas
             lastPlayerPosition = playerPosition;
             lastPlayerLife = extraLife;
             lastLevel = nivel;            
+        }
+        //!!!! IMPRIMIR VALOR VARIABLES
+        yield return null;
+    }
+
+    IEnumerator GuardadoWhile()
+    {
+        while (true)
+        {
+            StartCoroutine(GuardarDatosAutomatico());
+            yield return new WaitForSeconds(1f);
         }
     }
 }

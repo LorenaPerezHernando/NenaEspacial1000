@@ -22,9 +22,9 @@ public class SaveSystem : MonoBehaviour
     }
 
     // Función para guardar en formato JSON
-    public void GuardarDatos(Vector3 playerPosition,Vector3 playerRotation, bool extraLife, int nivel)
+    public void GuardarDatos(Vector3 playerPosition, bool extraLife, int nivel)
     {
-        playerData data = new playerData(playerPosition, playerRotation, extraLife, nivel);
+        playerData data = new playerData(playerPosition, extraLife, nivel);
 
         // Convertimos los datos a formato JSON
         string json = JsonUtility.ToJson(data, true);
@@ -45,7 +45,7 @@ public class SaveSystem : MonoBehaviour
             // Convertimos el JSON a la clase playerData
             playerData data = JsonUtility.FromJson<playerData>(json);
 
-            Debug.Log("Datos cargados correctamente: PosicionPlayer: " + data.playerPosition + ", RotacionPlayer: " + data.playerRotation 
+            Debug.Log("Datos cargados correctamente: PosicionPlayer: " + data.playerPosition 
                 + ", ExtraVida: " + data.extraLife + ", Nivel: " + data.nivel);
             return data;
         }

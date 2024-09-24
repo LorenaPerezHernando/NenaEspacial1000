@@ -9,20 +9,20 @@ public class OnCollisionDestroy : MonoBehaviour
     public int posInitialGrowth;
     [SerializeField] bool plantFullyGrown;
 
-    GrowPlant s_growPlant;
+    //GrowPlant s_growPlant;
 
     private void Start()
     {
-        GetComponent<GrowPlant>();
+        //GetComponent<GrowPlant>();
         // posInitialGrowth = s_growPlant.highPosY - s_growPlant.highPosY;
         posInitialGrowth = -1;
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player" && s_growPlant.fullyGrown == true)
-        {
-            StartCoroutine(CreateNewPlant());
-        }
+        //if(collision.gameObject.tag == "Player" && s_growPlant.fullyGrown == true)
+        //{
+        //    StartCoroutine(CreateNewPlant());
+        //}
     }
 
     IEnumerator CreateNewPlant()

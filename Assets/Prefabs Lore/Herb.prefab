@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3366379907838006509}
-  - component: {fileID: 7520915467785200546}
   - component: {fileID: 5116597852893262211}
   - component: {fileID: 8033777055606037608}
   - component: {fileID: 4933266860449226061}
@@ -36,23 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7520915467785200546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6512661488034020875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbe41d9f92f1b714cbf41bd78d83d104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highPosY: 0
-  PosActualY: -1
-  plantTransform: {x: 0, y: 0, z: 0}
-  crecimiento: 0.2
-  fullyGrown: 0
 --- !u!114 &5116597852893262211
 MonoBehaviour:
   m_ObjectHideFlags: 0
