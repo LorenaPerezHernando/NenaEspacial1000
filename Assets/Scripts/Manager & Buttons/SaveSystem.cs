@@ -46,6 +46,7 @@ public class SaveSystem : MonoBehaviour
             // Convertimos el JSON a la clase playerData
             playerData data = JsonUtility.FromJson<playerData>(json);
 
+
             Debug.Log("Datos cargados correctamente: PosicionPlayer: " + data.playerPosition 
                 + ", ExtraVida: " + data.extraLife + ", Nivel: " + data.nivel);
             return data;
