@@ -24,6 +24,7 @@ public class SaveSystem : MonoBehaviour
     // Función para guardar en formato JSON
     public void GuardarDatos(Vector3 playerPosition, bool extraLife, int nivel)
     {
+        print("METODO EN SAVESYSTEM = PlayerPos: " + playerPosition + "Life: " + extraLife + "nivel: " + nivel);
         playerData data = new playerData(playerPosition, extraLife, nivel);
 
         // Convertimos los datos a formato JSON

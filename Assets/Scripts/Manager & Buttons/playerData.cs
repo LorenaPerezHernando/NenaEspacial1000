@@ -6,12 +6,15 @@ using UnityEngine;
 public class playerData : MonoBehaviour
 {
     public SaveSystem s_saveSystem;
+    public GameObject panelConfig;
 
     private Vector3 lastPlayerPosition;
     private bool lastPlayerLife;
     private int lastLevel;
 
     public Vector3 playerPosition;
+
+    public GameObject player;
     //public Transform playerPosition;
     public bool extraLife;
     public int nivel;
@@ -24,8 +27,9 @@ public class playerData : MonoBehaviour
 
     private void Start()
     {
-        playerPosition = transform.position;
-        StartCoroutine(GuardarDatosAutomatico());
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerPosition = player.transform.position;
+        //StartCoroutine(GuardarDatosAutomatico());
 
     }
     public playerData(Vector3 playerPosition, bool extraLife, int nivel)
@@ -36,20 +40,25 @@ public class playerData : MonoBehaviour
         this.nivel = nivel;
     }
 
-    private void Update()
+    public void abrirPanelconfig()
     {
-         
+        if (panelConfig.activeSelf)        
+            panelConfig.SetActive(false);
+        
+        else 
+        panelConfig.SetActive(true);
     }
-
     public void guardarButton()
     {
         StartCoroutine(GuardarDatosAutomatico());
+        
     }
 
-    IEnumerator GuardarDatosAutomatico()
+    public IEnumerator GuardarDatosAutomatico()
     {
         Debug.Log("Intento de guardado");
-        //!!! IMPRIMIR VALOR VARIABLES
+        print("PlayerPos: " + playerPosition + "LastPos: " + lastPlayerPosition);
+        playerPosition = transform.position;
         if (playerPosition != lastPlayerPosition || extraLife != lastPlayerLife || nivel != lastLevel)
         {
             Debug.Log("Datos Guardados");
@@ -64,12 +73,10 @@ public class playerData : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator GuardadoWhile()
+    public void CargarDatos()
     {
-        while (true)
-        {
-            StartCoroutine(GuardarDatosAutomatico());
-            yield return new WaitForSeconds(1f);
-        }
+        s_saveSystem.CargarDatos();
     }
+
+    
 }

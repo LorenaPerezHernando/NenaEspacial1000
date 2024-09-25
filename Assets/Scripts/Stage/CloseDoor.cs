@@ -24,7 +24,7 @@ public class CloseDoor : MonoBehaviour
         if (s_opendoor.transformY == highPosY)
         {
             s_opendoor.doorOpened = false;
-            Debug.Log("La puerta ahora esta cerrada");
+            //!!!ACTIVAR Y SABER SI LO VOY A DEJAR EN EL UPDATE Debug.Log("La puerta ahora esta cerrada");
         }
 
         yield return null;
