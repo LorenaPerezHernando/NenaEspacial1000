@@ -72,4 +72,13 @@ public class AIChampi : MonoBehaviour
         yield return new WaitForSeconds(2f);     
 
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {      
+        if (collision.gameObject.tag == "Player")
+        {
+           player.GetComponent<playerData>().extraLife = true;
+            print("Activar imagen Vida Extra"); 
+        }
+    }
 }
