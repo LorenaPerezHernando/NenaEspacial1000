@@ -45,12 +45,10 @@ public class IABunny : MonoBehaviour
         {
             if (destinations[i] != destinations[destinations.Length - 1] )            
             {
-                i++;
-                print("Destino: " + destinations[i]);
-
+                i++;                
                 if(distanceToPlayer < distanceToFollowPlayer || followPlayer)
                 {
-                        FollowPlayer();
+                    FollowPlayer();
                 }
             }
             else
