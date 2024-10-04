@@ -37,8 +37,8 @@ public class AIChampi : MonoBehaviour
         navMeshAgent.destination = destinations[i].position;
         if (Vector3.Distance(transform.position, destinations[i].position) <= 0.01f)
         {
+            navMeshAgent.destination = destinations[i].position;
 
-            
             if (destinations[i] != destinations[destinations.Length - 1])
             {
                 i++;

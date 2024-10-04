@@ -6,9 +6,7 @@ public class PlayerMov : MonoBehaviour
 {
     public Rigidbody rb;
     public float speed = 4f;
-
-    
-
+    public float speedYDash; 
     
     void Update()
     {
@@ -21,12 +19,9 @@ public class PlayerMov : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            speed = 10; 
+            speed = speed + speedYDash; 
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            speed = 4;
-        }
+        
 
     }
 
