@@ -1086,7 +1086,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212419647}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1143,7 +1143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 212419648}
   speed: 4
-  speedyDash: 6
+  speedYDash: 6
 --- !u!4 &212419653
 Transform:
   m_ObjectHideFlags: 0
