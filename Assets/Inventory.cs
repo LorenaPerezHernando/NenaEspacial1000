@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] public int flor;
-    [SerializeField] public int mush;
-    [SerializeField] public int hierba;
-    [SerializeField] public bool extraLife; 
-   
+     public int flor;
+     public int mush;
+     public int hierba;
+     public bool extraLife;
+
+    public float nivel;
+
+    private void Update()
+    {
+        if (flor >= 3 && mush >= 3 && hierba >= 3)
+            nivel = 1.5f;
+    }
+
 }
