@@ -9,7 +9,7 @@ public class AIChampi : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
     private GameObject player;
-    [SerializeField] private Image extraVida;
+    [SerializeField] private GameObject extraVida;
 
     public Transform[] destinations;
     private int i;
@@ -23,7 +23,7 @@ public class AIChampi : MonoBehaviour
         player = FindAnyObjectByType<PlayerMov>().gameObject;
 
         navMeshAgent = GetComponent<NavMeshAgent>();
-        extraVida.enabled = false;
+        extraVida.SetActive (false);
         if (destinations.Length > 0)
         {
             StartCoroutine(MoverYSalta(destinations[i].position)); // Comienza con el primer destino
@@ -77,7 +77,6 @@ public class AIChampi : MonoBehaviour
 
     IEnumerator Saltar(Vector3 destino)
     {
-        print("saltar");
         Vector3 saltoDestino = new Vector3(transform.position.x, alturaDelSalto, transform.position.z);
         Vector3 positionInicial = new Vector3(transform.position.x, 0 , transform.position.z);
 
@@ -104,9 +103,25 @@ public class AIChampi : MonoBehaviour
     {      
         if (collision.gameObject.tag == "Player")
         {
-           player.GetComponent<playerData>().extraLife = true;
+           player.GetComponent<Inventory>().extraLife = true;
             print("Activar imagen Vida Extra"); 
-            extraVida.enabled = true;
+            extraVida.SetActive(true);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            player.GetComponent<Inventory>().extraLife = true;
+            print("Trigger Enter");
+            extraVida.SetActive(true);
+            GetComponent<Renderer>().enabled = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        GetComponent<Renderer>().enabled = true;
     }
 }

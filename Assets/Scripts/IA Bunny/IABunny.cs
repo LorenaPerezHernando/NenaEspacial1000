@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class IABunny : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
+    [SerializeField] GameObject extraVida; 
     public Transform[] destinations;
     public float distanceToFollowPlayer = 5;
     public float distanceToFollowPath = 2; 
@@ -65,21 +66,22 @@ public class IABunny : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player" && player.GetComponent<playerData>().extraLife == false)
+        if(collision.gameObject.tag == "Player" && player.GetComponent<Inventory>().extraLife == false)
         {
-            playerData data = player.GetComponent<playerData>();
+            Inventory data = player.GetComponent<Inventory>();
 
-            QuitarObjeto(ref data.mushrooms, "Mushrooms", 3);
+            QuitarObjeto(ref data.mush, "Mushrooms", 3);
             QuitarObjeto(ref data.flor, "Flores", 3);
-            QuitarObjeto(ref data.hierbas, "Hierbas", 3);
+            QuitarObjeto(ref data.hierba, "Hierbas", 3);
 
             ResetPosition();
 
         }
-        if (collision.gameObject.tag == "Player" && player.GetComponent<playerData>().extraLife == true)
+        if (collision.gameObject.tag == "Player" && player.GetComponent<Inventory>().extraLife == true)
         {
-            player.GetComponent<playerData>().extraLife = false;
+            player.GetComponent<Inventory>().extraLife = false;
             print("Eliminar imagen del champi(vida extra)");
+            extraVida.SetActive(false);
             ResetPosition();
 
         }

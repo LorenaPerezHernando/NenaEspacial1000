@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CollisionGetPlant : MonoBehaviour
 {
-    private playerData s_playerData;
+    [SerializeField] Inventory inventory; 
     [SerializeField] bool listoParaCosecha;
 
     private void OnCollisionEnter(Collision collision)
@@ -15,15 +15,15 @@ public class CollisionGetPlant : MonoBehaviour
     {
         if(gameObject.tag == "Flor")
         {
-            s_playerData.flor++;
+            inventory.flor++;
         }
         if(gameObject.tag == "Mush")
         {
-            s_playerData.mushrooms++;
+            inventory.mush++;
         }
         if(gameObject.tag == "Hierba")
         {
-            s_playerData.hierbas++; 
+            inventory.hierba++; 
         }
     }
 }
