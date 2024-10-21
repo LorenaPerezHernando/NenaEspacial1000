@@ -27,7 +27,7 @@ public class OpenDoor : MonoBehaviour
                 StartCoroutine(Open());
 
             else
-                print("No tienes suficientes objetos, ve a buscar mas // *Sonido de error* " );
+                print("No tienes suficientes objetos, ve a buscar mas // *Sonido de error* Tr" );
             
         }
     }

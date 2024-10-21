@@ -47,9 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438794886b91131448cf7a666fdfdb65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPlant: {fileID: 6512661488034020875}
-  posInitialGrowth: 0
-  plantFullyGrown: 0
 --- !u!33 &8033777055606037608
 MeshFilter:
   m_ObjectHideFlags: 0

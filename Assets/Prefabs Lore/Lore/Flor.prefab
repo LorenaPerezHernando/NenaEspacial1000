@@ -29,9 +29,9 @@ Transform:
   m_GameObject: {fileID: 3060583345694885231}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.37688, y: 2.8496, z: 0.42841}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0.47}
+  m_LocalScale: {x: 0.37688, y: 0.68, z: 0.42841}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,9 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438794886b91131448cf7a666fdfdb65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabPlant: {fileID: 3060583345694885231}
-  posInitialGrowth: 0
-  plantFullyGrown: 0
 --- !u!33 &6590787816952249058
 MeshFilter:
   m_ObjectHideFlags: 0
