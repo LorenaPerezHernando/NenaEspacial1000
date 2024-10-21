@@ -14,19 +14,19 @@ public class OnCollisionDestroy : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        
-        if (collision.gameObject.tag == "Player") 
+
+        if (collision.gameObject.tag == "Player")
         {
-            if(gameObject.tag == "Flor")
-                player.GetComponent<playerData>().flor++;
+            if (gameObject.tag == "Flor")
+                player.GetComponent<Inventory>().flor++;
 
             if (gameObject.tag == "Mush")
-                player.GetComponent<playerData>().mushrooms++;
+                player.GetComponent<Inventory>().mush++;
 
             if (gameObject.tag == "Hierba")
-                player.GetComponent<playerData>().hierbas++;
+                player.GetComponent<Inventory>().hierba++;
 
-            Destroy(gameObject, 1); 
+            Destroy(gameObject, 1);
 
         }
     }

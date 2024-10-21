@@ -21,7 +21,14 @@ public class OpenDoor : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            StartCoroutine(Open());
+            Inventory inventory = other.GetComponent<Inventory>();
+
+            if (inventory.flor >= 3 && inventory.mush >= 3 && inventory.hierba >= 3)
+                StartCoroutine(Open());
+
+            else
+                print("No tienes suficientes objetos, ve a buscar mas // *Sonido de error* " );
+            
         }
     }
 

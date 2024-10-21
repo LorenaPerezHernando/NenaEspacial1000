@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class playerData : MonoBehaviour
+public class playerData
 {
     public SaveSystem s_saveSystem;
-    public GameObject panelConfig;
+    //public GameObject panelConfig;
 
-    private Vector3 lastPlayerPosition;
-    private bool lastPlayerLife;
-    private int lastLevel;
+    //private Vector3 lastPlayerPosition;
+    //private bool lastPlayerLife;
+    //private int lastLevel;
 
     public Vector3 playerPosition;
 
@@ -40,43 +40,43 @@ public class playerData : MonoBehaviour
         this.nivel = nivel;
     }
 
-    public void abrirPanelconfig()
-    {
-        if (panelConfig.activeSelf)        
-            panelConfig.SetActive(false);
+    //public void abrirPanelconfig()
+    //{
+    //    if (panelConfig.activeSelf)        
+    //        panelConfig.SetActive(false);
         
-        else 
-        panelConfig.SetActive(true);
-    }
-    public void guardarButton()
-    {
-        StartCoroutine(GuardarDatosAutomatico());
+    //    else 
+    //    panelConfig.SetActive(true);
+    //}
+    //public void guardarButton()
+    //{
+    //    StartCoroutine(GuardarDatosAutomatico());
         
-    }
+    //}
 
-    public IEnumerator GuardarDatosAutomatico()
-    {
-        Debug.Log("Intento de guardado");
-        print("PlayerPos: " + playerPosition + "LastPos: " + lastPlayerPosition);
-        playerPosition = transform.position;
-        if (playerPosition != lastPlayerPosition || extraLife != lastPlayerLife || nivel != lastLevel)
-        {
-            Debug.Log("Datos Guardados");
-            s_saveSystem.GuardarDatos(playerPosition, extraLife, nivel);
+    //public IEnumerator GuardarDatosAutomatico()
+    //{
+    //    Debug.Log("Intento de guardado");
+    //    print("PlayerPos: " + playerPosition + "LastPos: " + lastPlayerPosition);
+    //    playerPosition = transform.position;
+    //    if (playerPosition != lastPlayerPosition || extraLife != lastPlayerLife || nivel != lastLevel)
+    //    {
+    //        Debug.Log("Datos Guardados");
+    //        s_saveSystem.GuardarDatos(playerPosition, extraLife, nivel);
 
-            // Actualizar las últimas posiciones y rotaciones conocidas
-            lastPlayerPosition = playerPosition;
-            lastPlayerLife = extraLife;
-            lastLevel = nivel;            
-        }
-        //!!!! IMPRIMIR VALOR VARIABLES
-        yield return null;
-    }
+    //        // Actualizar las últimas posiciones y rotaciones conocidas
+    //        lastPlayerPosition = playerPosition;
+    //        lastPlayerLife = extraLife;
+    //        lastLevel = nivel;            
+    //    }
+    //    //!!!! IMPRIMIR VALOR VARIABLES
+    //    yield return null;
+    //}
 
-    public void CargarDatos()
-    {
-        s_saveSystem.CargarDatos();
-    }
+    //public void CargarDatos()
+    //{
+    //    s_saveSystem.CargarDatos();
+    //}
 
     
 }
