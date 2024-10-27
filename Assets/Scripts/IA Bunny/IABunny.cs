@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class IABunny : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI t_mision;
     public NavMeshAgent navMeshAgent;
     [SerializeField] GameObject extraVida; 
     public Transform[] destinations;
@@ -17,8 +19,13 @@ public class IABunny : MonoBehaviour
     private int i = 0;
     private GameObject player;
     [SerializeField] private float distanceToPlayer;
-    
-    
+
+
+    private void Awake()
+    {
+        t_mision = FindAnyObjectByType<TextController>().messageText;
+    }
+
 
 
     void Start()
@@ -70,11 +77,20 @@ public class IABunny : MonoBehaviour
         {
             Inventory data = player.GetComponent<Inventory>();
 
-            QuitarObjeto(ref data.mush, "Mushrooms", 3);
-            QuitarObjeto(ref data.flor, "Flores", 3);
-            QuitarObjeto(ref data.hierba, "Hierbas", 3);
+            if (player.GetComponent<Inventory>().mush >= 3 && player.GetComponent<Inventory>().flor >= 3 && player.GetComponent<Inventory>().hierba >= 3)
+                print("No robar los objetos, tiene 3 de cada");
 
-            ResetPosition();
+            else
+            {
+                t_mision.text = "El eBunny te ha quitado plantas, ten cuidado";
+
+                QuitarObjeto(ref data.mush, "Mushrooms", 3);
+                QuitarObjeto(ref data.flor, "Flores", 3);
+                QuitarObjeto(ref data.hierba, "Hierbas", 3);
+
+                ResetPosition();
+
+            }
 
         }
         if (collision.gameObject.tag == "Player" && player.GetComponent<Inventory>().extraLife == true)
