@@ -2,26 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextController : MonoBehaviour
 {
-    private float nivel; 
+    public int nivel;
 
-    [SerializeField] private TextMeshProUGUI messageText; 
+    [SerializeField] Image mensajeNuevoImage;
+    [SerializeField] public TextMeshProUGUI messageText;
+    [SerializeField] TextMeshProUGUI t_inventario;
+    Inventory s_Inventory;
     public string[] MensajesIniciales; 
     public string[] MensajesMisionRecolectar;
     public string[] MensajesFinMision; 
-    private int currentMessageIndex = 0;
+    public int currentMessageIndex = 0;
 
     private void Awake()
     {
-        nivel = GameObject.FindWithTag("Player").GetComponent<Inventory>().nivel;
+        s_Inventory = FindAnyObjectByType<Inventory>();
+        
+        
+        
     }
     void Start()
     {
+        t_inventario.enabled = false;
         if (MensajesIniciales.Length > 0)
         {
             messageText.text = MensajesIniciales[currentMessageIndex]; // Mostrar el primer mensaje
+            
         }
         else
         {
@@ -31,40 +40,61 @@ public class TextController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Detecta el clic izquierdo del ratón
+        
+        t_inventario.text = "Flores: " + s_Inventory.flor + " Champis: " + s_Inventory.mush + " Hierbas: " + s_Inventory.hierba;
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyUp(KeyCode.Return)) // Detecta el clic izquierdo del ratón y boton de Enter 
         {
             if(nivel == 0) 
-                NextMessage();
+                TheStartMessage();
 
             if (nivel == 1)
                 MisionMensajes();
 
-            
+            if (nivel == 2)
+                MisionCumplidaMensajes();
+
+            mensajeNuevoImage.enabled = false;
+
+
         }
     }
 
-    void NextMessage()
+
+            
+    
+
+    void TheStartMessage()
     {
-        if (currentMessageIndex < MensajesIniciales.Length - 1)
+        mensajeNuevoImage.enabled = true;
+        if (currentMessageIndex < MensajesIniciales.Length - 1 && nivel == 0)
         {
             currentMessageIndex++;
             messageText.text = MensajesIniciales[currentMessageIndex];
+           mensajeNuevoImage.enabled = false;
         }
 
         else
         {
+            //t_inventario.enabled = true;
             currentMessageIndex = 0;
-            nivel = 1;               
+            nivel = 1;   
+
         }
     }
 
     void MisionMensajes()
     {
-       
-            if (currentMessageIndex < MensajesMisionRecolectar.Length - 1)
+
+        if (currentMessageIndex < MensajesMisionRecolectar.Length - 1 && nivel ==  1)
             {
+                 mensajeNuevoImage.enabled = true;
+                t_inventario.enabled= true;
+
                 currentMessageIndex++;
+
+
                 messageText.text = MensajesMisionRecolectar[currentMessageIndex];
+                 mensajeNuevoImage.enabled=false;
             }
             else
             {
@@ -72,20 +102,27 @@ public class TextController : MonoBehaviour
             }
     }
 
-    void MisionCumplidaMensajes()
+    public void MisionCumplidaMensajes()
     {
-        if(nivel == 1.5)
+        
+        
+            mensajeNuevoImage.enabled = true;
+        if (currentMessageIndex < MensajesFinMision.Length - 1 && nivel == 2)
         {
-            if (currentMessageIndex < MensajesFinMision.Length - 1)
-            {
-                currentMessageIndex++;
-                messageText.text = MensajesFinMision[currentMessageIndex];
-            }
-            else
-            {
-                print("Poner el mensaje en texto mision");
-            }
+            print("Mensajes fINALES");
+            currentMessageIndex++;
+            messageText.text = MensajesFinMision[currentMessageIndex];
         }
+
+
+        else //Para salir del bucle anterior despues de haber puesto todos los mensajes
+        {
+           
+            print("Pon un mensaje");
+            nivel = 3;
+
+        }
+   
     }
 }
 

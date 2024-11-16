@@ -21,6 +21,8 @@ public class PlayerMov : MonoBehaviour
         {
             speed = speed + speedYDash; 
         }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+            speed = speed - speedYDash;
         
 
     }
