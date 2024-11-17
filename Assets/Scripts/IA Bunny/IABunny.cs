@@ -8,7 +8,7 @@ public class IABunny : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI t_mision;
     public NavMeshAgent navMeshAgent;
-    [SerializeField] GameObject extraVida; 
+    [SerializeField] GameObject ImageextraVida; 
     public Transform[] destinations;
     public float distanceToFollowPlayer = 5;
     public float distanceToFollowPath = 2; 
@@ -38,10 +38,12 @@ public class IABunny : MonoBehaviour
         distanceToPlayer = Vector3.Distance(transform.position,player.transform.position);
         if(distanceToPlayer < distanceToFollowPlayer  || followPlayer)
         {
+            transform.LookAt(player.transform.position);
             FollowPlayer();
         }
         if(distanceToPlayer > distanceToFollowPlayer)      
         {
+            transform.LookAt(destinations[i]);
             EnemyPath();
         }
     }
@@ -53,6 +55,7 @@ public class IABunny : MonoBehaviour
         {
             if (destinations[i] != destinations[destinations.Length - 1] )            
             {
+                
                 i++;                
                 if(distanceToPlayer < distanceToFollowPlayer || followPlayer)
                 {
@@ -97,7 +100,7 @@ public class IABunny : MonoBehaviour
         {
             player.GetComponent<Inventory>().extraLife = false;
             print("Eliminar imagen del champi(vida extra)");
-            extraVida.SetActive(false);
+            ImageextraVida.SetActive(false);
             ResetPosition();
 
         }
