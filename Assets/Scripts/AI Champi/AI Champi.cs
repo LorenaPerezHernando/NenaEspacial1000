@@ -30,27 +30,10 @@ public class AIChampi : MonoBehaviour
         }
 
     }
-
-    //void Update()
-    //{     
-    //    navMeshAgent.destination = destinations[i].position;
-    //    if (Vector3.Distance(transform.position, destinations[i].position) <= 0.5f)
-    //    {
-    //        navMeshAgent.transform.position = destinations[i].position;
-
-    //        if (destinations[i] != destinations[destinations.Length - 1])
-    //        {
-    //            i++;
-    //            navMeshAgent.transform.position = destinations[i].position;
-    //            print("Destino: " + destinations[i]);
-    //            StartCoroutine(Saltar());
-    //        }
-    //        else
-    //        {
-    //            i = 0;
-    //        }
-    //    }
-    //}
+    void Update()
+    {
+        transform.LookAt(player.transform.position);
+    }
 
     IEnumerator MoverYSalta(Vector3 destino)
     {
@@ -83,7 +66,7 @@ public class AIChampi : MonoBehaviour
         float timePassed = 0; 
         while(timePassed < duracionsalto)
         {
-             transform.position= Vector3.Lerp(positionInicial, saltoDestino, timePassed/duracionsalto);
+            transform.position = Vector3.Lerp(positionInicial, saltoDestino, timePassed / duracionsalto);
             timePassed += Time.deltaTime;  
             yield return null;
 
@@ -96,7 +79,8 @@ public class AIChampi : MonoBehaviour
             timePassed += Time.deltaTime;
             yield return null;
         }
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f);
+
     }
 
     private void OnCollisionEnter(Collision collision)
