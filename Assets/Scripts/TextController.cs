@@ -10,7 +10,9 @@ public class TextController : MonoBehaviour
 
     [SerializeField] Image mensajeNuevoImage;
     [SerializeField] public TextMeshProUGUI messageText;
+    [SerializeField] Image img_tMision;
     [SerializeField] TextMeshProUGUI t_inventario;
+    [SerializeField] Image imgInventario;
     Inventory s_Inventory;
     public string[] MensajesIniciales; 
     public string[] MensajesMisionRecolectar;
@@ -20,12 +22,14 @@ public class TextController : MonoBehaviour
     private void Awake()
     {
         s_Inventory = FindAnyObjectByType<Inventory>();
+        img_tMision.GetComponent<Image>();
         
         
         
     }
     void Start()
     {
+        imgInventario.enabled = false;
         t_inventario.enabled = false;
         if (MensajesIniciales.Length > 0)
         {
@@ -42,6 +46,7 @@ public class TextController : MonoBehaviour
     {
         
         t_inventario.text = "Flores: " + s_Inventory.flor + " Champis: " + s_Inventory.mush + " Hierbas: " + s_Inventory.hierba;
+        
         if (Input.GetMouseButtonDown(0) || Input.GetKeyUp(KeyCode.Return)) // Detecta el clic izquierdo del ratón y boton de Enter 
         {
             if(nivel == 0) 
@@ -70,7 +75,7 @@ public class TextController : MonoBehaviour
         {
             currentMessageIndex++;
             messageText.text = MensajesIniciales[currentMessageIndex];
-           mensajeNuevoImage.enabled = false;
+            mensajeNuevoImage.enabled = false;
         }
 
         else
@@ -86,20 +91,25 @@ public class TextController : MonoBehaviour
     {
 
         if (currentMessageIndex < MensajesMisionRecolectar.Length - 1 && nivel ==  1)
-            {
-                 mensajeNuevoImage.enabled = true;
-                t_inventario.enabled= true;
+        {
+            mensajeNuevoImage.enabled = true;
+            t_inventario.enabled= true;
+            imgInventario.enabled = true;
+            img_tMision.color = new Color(img_tMision.color.r, img_tMision.color.g, img_tMision.color.b, 0.5f);
+            
 
-                currentMessageIndex++;
+            
+
+            currentMessageIndex++;
 
 
-                messageText.text = MensajesMisionRecolectar[currentMessageIndex];
-                 mensajeNuevoImage.enabled=false;
-            }
-            else
-            {
-                print("Poner el mensaje en texto mision");
-            }
+            messageText.text = MensajesMisionRecolectar[currentMessageIndex];
+            mensajeNuevoImage.enabled=false;
+        }
+        else
+        {
+            print("Poner el mensaje en texto mision");
+        }
     }
 
     public void MisionCumplidaMensajes()

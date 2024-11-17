@@ -73,6 +73,7 @@ public class IABunny : MonoBehaviour
     public void FollowPlayer()
     {
         navMeshAgent.destination = player.transform.position;
+        //t_mision.text = "Cuidado con el e-bunny";
     }
     private void OnCollisionEnter(Collision collision)
     {

@@ -16,8 +16,9 @@ public class OnCollisionDestroy : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player"); 
+        thisRenderer = GetComponentInChildren<Renderer>();
         thisCollider = GetComponent<Collider>();
-        thisRenderer = GetComponent<Renderer>();    
+        //thisRenderer = GetComponent<Renderer>();    
     }
     private void OnCollisionEnter(Collision collision)
     {
