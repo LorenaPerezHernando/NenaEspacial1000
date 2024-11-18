@@ -4263,6 +4263,83 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3366379907838006509, guid: 75f3103b92f293646abdd131c82b29a4, type: 3}
   m_PrefabInstance: {fileID: 448583614}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1479192862
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 182.75522
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 57.375675
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 221.06848
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2195671605553944579, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.9986181
+      objectReference: {fileID: 0}
+    - target: {fileID: -238014575986167334, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.521992
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_Name
+      value: Mili_picking_up_sabado
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495196497043535608, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c3cb632c6d436f3449b79369eb2a76ad, type: 2}
+    - target: {fileID: 7495196497043535608, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 34e270e63a6b74747968ca45ee81d46c, type: 2}
+    - target: {fileID: 7495196497043535608, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 614fb287da2ef484abf6c224a543248d, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f470820a8c3cb74893e7f2fb13fb0f7, type: 3}
 --- !u!1 &1491429560
 GameObject:
   m_ObjectHideFlags: 0
@@ -7641,3 +7718,4 @@ SceneRoots:
   - {fileID: 1776989715}
   - {fileID: 2092748323}
   - {fileID: 487405021}
+  - {fileID: 1479192862}
