@@ -1806,6 +1806,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0635487
       objectReference: {fileID: 0}
+    - target: {fileID: 1063622956525862755, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5123140303115915071, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2804,7 +2808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7775208286091226408
 Transform:
   m_ObjectHideFlags: 0
