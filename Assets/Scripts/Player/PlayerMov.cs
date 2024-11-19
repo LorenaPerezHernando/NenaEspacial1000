@@ -29,16 +29,10 @@ public class PlayerMov : MonoBehaviour
         rb.MovePosition(rb.position + move * speed * Time.deltaTime);
         //anim.SetBool("Walk", true);
 
-
-        if(rb.velocity.x > 0.01f || rb.velocity.z > 0.01f)
-        {
+        if (move.magnitude > 0.01f)
             anim.SetBool("Walk", true);
-
-        }
         else
-        {
             anim.SetBool("Walk", false);
-        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {

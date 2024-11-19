@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class AIChampi : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
+    [SerializeField] Renderer render;
     private GameObject player;
     [SerializeField] private GameObject extraVida;
 
@@ -17,12 +18,16 @@ public class AIChampi : MonoBehaviour
     public int alturaDelSalto;
     public int duracionsalto = 3;
 
+    private void Awake()
+    {
+        render = GetComponentInChildren<Renderer>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        player = FindAnyObjectByType<PlayerMov>().gameObject;
+    }
     void Start()
     {
         navMeshAgent.destination = destinations[i].transform.position;
-        player = FindAnyObjectByType<PlayerMov>().gameObject;
 
-        navMeshAgent = GetComponent<NavMeshAgent>();
         extraVida.SetActive (false);
         if (destinations.Length > 0)
         {
@@ -100,12 +105,12 @@ public class AIChampi : MonoBehaviour
             player.GetComponent<Inventory>().extraLife = true;
             print("Trigger Enter");
             extraVida.SetActive(true);
-            GetComponent<Renderer>().enabled = false;
+            render.enabled = false;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        GetComponent<Renderer>().enabled = true;
+        render.enabled = true;
     }
 }
