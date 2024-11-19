@@ -7,10 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class UIControler : MonoBehaviour
 {
-    
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+    }
 
-public void Play () 
+    public void Play () 
 
     {
         SceneManager.LoadScene(1);

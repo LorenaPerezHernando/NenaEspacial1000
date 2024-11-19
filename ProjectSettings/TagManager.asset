@@ -7,6 +7,8 @@ TagManager:
   - Mushroom
   - Flor
   - Hierba
+  - Mush
+  - Terrain
   layers:
   - Default
   - TransparentFX
