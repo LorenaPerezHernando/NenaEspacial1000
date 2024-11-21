@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    //public Transform door;
-    //public int transformY;
-    //private int lowPosY = -4;
+    public Transform door;
+    public Transform door2;
+    public GameObject centroCollider;
+    public int transformY;
+    private int lowPosY = -4;
 
 
-    //public bool doorOpened = false; //Debo saber si esta dentro para desactivar el bool y que pueda salir
-                                //Y activar cuando no este dentro, para que cierre cuando entre
-   
+    public bool doorOpened = false; //Debo saber si esta dentro para desactivar el bool y que pueda salir
+    //Y activar cuando no este dentro, para que cierre cuando entre
+
+
 
     private void Update()
     {
@@ -24,8 +27,12 @@ public class OpenDoor : MonoBehaviour
             Inventory inventory = other.GetComponent<Inventory>();
 
             if (inventory.flor >= 3 && inventory.mush >= 3 && inventory.hierba >= 3)
-                //StartCoroutine(Open());
-                print("Video Final");
+            {
+                centroCollider.GetComponent<Collider>().enabled = false ;
+                StartCoroutine(Open());
+
+            }
+                //print("Video Final");
 
             else
                 print("No tienes suficientes objetos, ve a buscar mas // *Sonido de error* Tr");
@@ -33,18 +40,19 @@ public class OpenDoor : MonoBehaviour
         }
     }
 
-    //IEnumerator Open()
-    //{
-    //    while (transformY != lowPosY && doorOpened == false)
-    //    {
-    //        Debug.Log("Bajando Puerta");
-    //        transformY--;
-    //        door.position = new Vector3(door.position.x, transformY , door.position.z);           
+    IEnumerator Open()
+    {
+        while (transformY != lowPosY && doorOpened == false)
+        {
+            Debug.Log("Bajando Puerta");
+            transformY--;
+            door.position = new Vector3(door.position.x, transformY, door.position.z);
+            door2.position = new Vector3(door2.position.x, transformY, door2.position.z);
 
-    //        yield return new WaitForSeconds(0.3f);                      
-            
-    //    }
-        
-        
-    //}
+            yield return new WaitForSeconds(0.3f);
+
+        }
+
+
+    }
 }
