@@ -6,10 +6,12 @@ using UnityEngine.AI;
 
 public class IABunny : MonoBehaviour
 {
+    [SerializeField] Animator bunnyAnimator;
     [SerializeField] TextMeshProUGUI t_mision;
-    public NavMeshAgent navMeshAgent;
+     public NavMeshAgent navMeshAgent;
     [SerializeField] GameObject ImageextraVida; 
-    public Transform[] destinations;
+    //public Transform[] destinations;
+    public Transform[] destinations1;
     public float distanceToFollowPlayer = 5;
     public float distanceToFollowPath = 2; 
 
@@ -30,30 +32,68 @@ public class IABunny : MonoBehaviour
 
     void Start()
     {
-        navMeshAgent.destination = destinations[i].transform.position;
+        navMeshAgent.destination = destinations1[i].transform.position;
         player = FindAnyObjectByType<PlayerMov>().gameObject;
+        
     }
+    
     private void Update()
     {
+
+        //StartCoroutine(JumpAnim());
+        
         distanceToPlayer = Vector3.Distance(transform.position,player.transform.position);
         if(distanceToPlayer < distanceToFollowPlayer  || followPlayer)
         {
             transform.LookAt(player.transform.position);
+
             FollowPlayer();
         }
         if(distanceToPlayer > distanceToFollowPlayer)      
         {
-            transform.LookAt(destinations[i]);
+            transform.LookAt(destinations1[i]);
+
             EnemyPath();
         }
     }
+
+    
+    //IEnumerator JumpAnim()
+    //{
+    //    // Detener el NavMeshAgent durante el salto
+    //    navMeshAgent.isStopped = true;
+
+    //    // Activar la animación de salto
+    //    bunnyAnimator.SetTrigger("Jump");
+
+    //    // Sincronizar la posición del modelo con la animación (si es necesario)
+    //    float animationLength = bunnyAnimator.GetCurrentAnimatorStateInfo(0).length;
+    //    float elapsedTime = 0; 
+
+    //    Vector3 startPosition = transform.position;
+
+    //    while(elapsedTime < animationLength)
+    //    {
+    //        transform.position = bunnyAnimator.transform.position;
+    //        elapsedTime += Time.deltaTime;
+    //        yield return null;
+    //        elapsedTime = 0;
+    //    }
+
+    //    // Simula un pequeño retraso mientras se ejecuta la animación
+    //    //yield return new WaitForSeconds(animationLength);
+
+    //    // Reactivar el NavMeshAgent
+    //    navMeshAgent.isStopped = false;
+    //}
     public void EnemyPath()
     {
-        navMeshAgent.destination = destinations[i].position;
+
+        navMeshAgent.destination = destinations1[i].position;
         
-        if(Vector3.Distance(transform.position, destinations[i].position ) <= distanceToFollowPath)
+        if(Vector3.Distance(transform.position, destinations1[i].position ) <= distanceToFollowPath)
         {
-            if (destinations[i] != destinations[destinations.Length - 1] )            
+            if (destinations1[i] != destinations1[destinations1.Length - 1] )            
             {
                 
                 i++;                
@@ -127,6 +167,6 @@ public class IABunny : MonoBehaviour
 
     private void ResetPosition()
     {
-        transform.position = destinations[destinations.Length - 1].position;
+        transform.position = destinations1[destinations1.Length - 1].position;
     }
 }
