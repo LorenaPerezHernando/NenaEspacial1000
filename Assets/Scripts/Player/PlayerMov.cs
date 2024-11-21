@@ -28,15 +28,21 @@ public class PlayerMov : MonoBehaviour
 
         rb.MovePosition(rb.position + move * speed * Time.deltaTime);
         //anim.SetBool("Walk", true);
-
-        if (move.magnitude > 0.01f)
+        print(speed);
+        if(speed < 6)
             anim.SetBool("Walk", true);
-        else
+        //if (move.magnitude > 0.01f)
+        //    anim.SetBool("Walk", true);
+        if(speed > 8f)
             anim.SetBool("Walk", false);
+        //else
+        //    anim.SetBool("Walk", false);
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            //Debug.Log("Magnitude" + move.magnitude);
             speed = speed + dash;
+            //anim.SetBool("Walk", false );
             anim.SetBool("Run", true);
 
         }
