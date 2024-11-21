@@ -9,6 +9,8 @@ TagManager:
   - Hierba
   - Mush
   - Terrain
+  - entregaMisiones
+  - Children
   layers:
   - Default
   - TransparentFX

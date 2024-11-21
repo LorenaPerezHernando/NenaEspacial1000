@@ -60,7 +60,9 @@ MonoBehaviour:
   nivel: 0
   mensajeNuevoImage: {fileID: 0}
   messageText: {fileID: 0}
+  img_tMision: {fileID: 0}
   t_inventario: {fileID: 0}
+  imgInventario: {fileID: 0}
   MensajesIniciales:
   - Pulsa Enter o Haz Click en el raton para recibir el mensaje
   - Bienvenido a la colonia...
@@ -69,7 +71,7 @@ MonoBehaviour:
   MensajesMisionRecolectar:
   - 'Recolecta 3 hierbas, 3 setas y 3 flores '
   - Recolecta 3 hierbas, 3 setas y 3 flores, y llevalas a examinar....
-  - Ten cuidado con el eBunny, pulsa Shift para correr.
+  - Recolecta y ten cuidado con el eBunny, pulsa Shift para correr.
   MensajesFinMision:
   - "\xA1\xA1Muy bien!! "
   - Enhorabuena tienes todos los objetos...
