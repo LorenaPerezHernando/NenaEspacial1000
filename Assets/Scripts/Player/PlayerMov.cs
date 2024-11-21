@@ -27,22 +27,23 @@ public class PlayerMov : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         rb.MovePosition(rb.position + move * speed * Time.deltaTime);
-        //anim.SetBool("Walk", true);
-        print(speed);
-        if(speed < 6)
+
+
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
             anim.SetBool("Walk", true);
-        //if (move.magnitude > 0.01f)
-        //    anim.SetBool("Walk", true);
-        if(speed > 8f)
+        }
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+        {
             anim.SetBool("Walk", false);
-        //else
-        //    anim.SetBool("Walk", false);
+        }
+
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             //Debug.Log("Magnitude" + move.magnitude);
             speed = speed + dash;
-            //anim.SetBool("Walk", false );
+            anim.SetBool("Walk", false );
             anim.SetBool("Run", true);
 
         }
