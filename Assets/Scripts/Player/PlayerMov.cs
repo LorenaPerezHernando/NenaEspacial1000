@@ -31,6 +31,7 @@ public class PlayerMov : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
+            MusicManager.THIS.MusicPlay(1);
             anim.SetBool("Walk", true);
         }
         if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))

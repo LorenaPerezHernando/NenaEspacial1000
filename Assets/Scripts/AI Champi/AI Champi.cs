@@ -102,6 +102,7 @@ public class AIChampi : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            MusicManager.THIS.MusicPlay(3);
             player.GetComponent<Inventory>().extraLife = true;
             print("Trigger Enter");
             extraVida.SetActive(true);

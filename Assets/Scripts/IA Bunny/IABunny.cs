@@ -47,7 +47,7 @@ public class IABunny : MonoBehaviour
         if(distanceToPlayer < distanceToFollowPlayer  || followPlayer)
         {
             transform.LookAt(player.transform.position);
-
+            MusicManager.THIS.MusicPlay(4);
             FollowPlayer();
         }
         if(distanceToPlayer > distanceToFollowPlayer)      
@@ -120,7 +120,7 @@ public class IABunny : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player" && player.GetComponent<Inventory>().extraLife == false)
         {
-            
+            MusicManager.THIS.MusicPlay(2);
 
             if (player.GetComponent<Inventory>().mush >= 3 && player.GetComponent<Inventory>().flor >= 3 && player.GetComponent<Inventory>().hierba >= 3)
                 print("No robar los objetos, tiene 3 de cada");
