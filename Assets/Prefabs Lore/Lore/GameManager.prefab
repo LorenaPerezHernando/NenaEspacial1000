@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8832853094042000534}
   - component: {fileID: 6993757156558439886}
   - component: {fileID: 865098740345990722}
-  - component: {fileID: 3161559233665714680}
-  - component: {fileID: 5043387944682442321}
+  - component: {fileID: 7976468769165721689}
+  - component: {fileID: 7380453558714513649}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -80,7 +80,7 @@ MonoBehaviour:
   - Enhorabuena tienes todos los objetos...
   - no los pierdas y ve a la base.
   currentMessageIndex: 0
---- !u!82 &3161559233665714680
+--- !u!82 &7976468769165721689
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,13 +92,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 78d78d9c0416f2b48b9596b682acfe7c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.117
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 101
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -176,7 +176,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &5043387944682442321
+--- !u!82 &7380453558714513649
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,12 +189,12 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 8e5167f2767706240807f38d56525085, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: -2.25
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 21
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

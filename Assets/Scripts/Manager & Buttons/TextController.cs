@@ -51,24 +51,24 @@ public class TextController : MonoBehaviour
         {
             if(nivel == 0)
             {
-                img_tMision.enabled = true;                
+                           
                 TheStartMessage();
 
             }
 
             if (nivel == 1)
             {
-                img_tMision.enabled = true;
+                
                 MisionMensajes();
             }
 
             if (nivel == 2)
             {
-                img_tMision.enabled = true;
+                
                 MisionCumplidaMensajes();
             }
 
-            mensajeNuevoImage.enabled = false;
+           
 
 
         }
@@ -80,8 +80,7 @@ public class TextController : MonoBehaviour
 
     void TheStartMessage()
     {
-        img_tMision.enabled = true;
-        mensajeNuevoImage.enabled = true;
+        
         if (currentMessageIndex < MensajesIniciales.Length - 1 && nivel == 0)
         {
             currentMessageIndex++;
@@ -103,10 +102,10 @@ public class TextController : MonoBehaviour
 
         if (currentMessageIndex < MensajesMisionRecolectar.Length - 1 && nivel ==  1)
         {
-            mensajeNuevoImage.enabled = true;
+            
             t_inventario.enabled= true;
             imgInventario.enabled = true;
-            img_tMision.color = new Color(img_tMision.color.r, img_tMision.color.g, img_tMision.color.b, 0.5f);
+            img_tMision.color = new Color(img_tMision.color.r, img_tMision.color.g, img_tMision.color.b, 0f);
             
 
             
@@ -130,6 +129,7 @@ public class TextController : MonoBehaviour
         mensajeNuevoImage.enabled = true;
         if (currentMessageIndex < MensajesFinMision.Length - 1 && nivel == 2)
         {
+            img_tMision.color = new Color(img_tMision.color.r, img_tMision.color.g, img_tMision.color.b, 1f);
             print("Mensajes fINALES");
             currentMessageIndex++;
             messageText.text = MensajesFinMision[currentMessageIndex];
