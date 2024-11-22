@@ -49,14 +49,24 @@ public class TextController : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0) || Input.GetKeyUp(KeyCode.Return)) // Detecta el clic izquierdo del ratón y boton de Enter 
         {
-            if(nivel == 0) 
+            if(nivel == 0)
+            {
+                img_tMision.enabled = true;                
                 TheStartMessage();
 
+            }
+
             if (nivel == 1)
+            {
+                img_tMision.enabled = true;
                 MisionMensajes();
+            }
 
             if (nivel == 2)
+            {
+                img_tMision.enabled = true;
                 MisionCumplidaMensajes();
+            }
 
             mensajeNuevoImage.enabled = false;
 
@@ -70,6 +80,7 @@ public class TextController : MonoBehaviour
 
     void TheStartMessage()
     {
+        img_tMision.enabled = true;
         mensajeNuevoImage.enabled = true;
         if (currentMessageIndex < MensajesIniciales.Length - 1 && nivel == 0)
         {
@@ -102,8 +113,8 @@ public class TextController : MonoBehaviour
 
             currentMessageIndex++;
 
-
             messageText.text = MensajesMisionRecolectar[currentMessageIndex];
+            img_tMision.enabled = false;
             mensajeNuevoImage.enabled=false;
         }
         else
@@ -114,9 +125,9 @@ public class TextController : MonoBehaviour
 
     public void MisionCumplidaMensajes()
     {
-        
-        
-            mensajeNuevoImage.enabled = true;
+
+        img_tMision.enabled = true;
+        mensajeNuevoImage.enabled = true;
         if (currentMessageIndex < MensajesFinMision.Length - 1 && nivel == 2)
         {
             print("Mensajes fINALES");

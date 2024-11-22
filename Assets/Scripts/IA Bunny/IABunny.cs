@@ -8,6 +8,7 @@ public class IABunny : MonoBehaviour
 {
     [SerializeField] Animator bunnyAnimator;
     [SerializeField] TextMeshProUGUI t_mision;
+    [SerializeField] GameObject img_tMision;
      public NavMeshAgent navMeshAgent;
     [SerializeField] GameObject ImageextraVida; 
     //public Transform[] destinations;
@@ -119,13 +120,15 @@ public class IABunny : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player" && player.GetComponent<Inventory>().extraLife == false)
         {
-            Inventory data = player.GetComponent<Inventory>();
+            
 
             if (player.GetComponent<Inventory>().mush >= 3 && player.GetComponent<Inventory>().flor >= 3 && player.GetComponent<Inventory>().hierba >= 3)
                 print("No robar los objetos, tiene 3 de cada");
 
             else
             {
+                Inventory data = player.GetComponent<Inventory>();
+                img_tMision.SetActive(true);
                 t_mision.text = "El eBunny te ha quitado plantas, ten cuidado";
 
                 QuitarObjeto(ref data.mush, "Mushrooms", 3);
@@ -133,6 +136,7 @@ public class IABunny : MonoBehaviour
                 QuitarObjeto(ref data.hierba, "Hierbas", 3);
 
                 ResetPosition();
+                StartCoroutine(MensajeBunny());
 
             }
 
@@ -168,5 +172,14 @@ public class IABunny : MonoBehaviour
     private void ResetPosition()
     {
         transform.position = destinations1[destinations1.Length - 1].position;
+    }
+
+    IEnumerator MensajeBunny()
+    {
+        
+        yield return new WaitForSeconds(10);
+        t_mision.text = "";
+        img_tMision.SetActive(false);
+
     }
 }

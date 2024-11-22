@@ -572,6 +572,14 @@ PrefabInstance:
       propertyPath: mensajeNuevoImage
       value: 
       objectReference: {fileID: 821752347}
+    - target: {fileID: 865098740345990722, guid: 6ab5dbc8b8bc887469f7aac2b4e4689a, type: 3}
+      propertyPath: MensajesMisionRecolectar.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 865098740345990722, guid: 6ab5dbc8b8bc887469f7aac2b4e4689a, type: 3}
+      propertyPath: MensajesMisionRecolectar.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8832853094042000534, guid: 6ab5dbc8b8bc887469f7aac2b4e4689a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5347,9 +5355,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2657420164945440900, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5123140303115915071, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6225241631990673033, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7932485686750012287, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
       propertyPath: m_Pivot.x
@@ -5430,6 +5446,22 @@ PrefabInstance:
     - target: {fileID: 7932485686750012287, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002345526629866978, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 219.569
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002345526629866978, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 147.444
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002345526629866978, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -237.172
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002345526629866978, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 92.753
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6214,6 +6246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bunnyAnimator: {fileID: 8664976192357204749}
   t_mision: {fileID: 2092748324}
+  img_tMision: {fileID: 0}
   navMeshAgent: {fileID: 8660236675895849803}
   ImageextraVida: {fileID: 2092748325}
   destinations1:
