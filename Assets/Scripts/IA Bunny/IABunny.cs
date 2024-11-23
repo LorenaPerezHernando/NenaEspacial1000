@@ -8,7 +8,7 @@ public class IABunny : MonoBehaviour
 {
     [SerializeField] Animator bunnyAnimator;
     [SerializeField] TextMeshProUGUI t_mision;
-    [SerializeField] GameObject img_tMision;
+    //[SerializeField] GameObject img_tMision;
      public NavMeshAgent navMeshAgent;
     [SerializeField] GameObject ImageextraVida; 
     //public Transform[] destinations;
@@ -21,6 +21,8 @@ public class IABunny : MonoBehaviour
 
     private int i = 0;
     private GameObject player;
+    [SerializeField]private bool follow;
+    [SerializeField]private bool musicPlayed;
     [SerializeField] private float distanceToPlayer;
 
 
@@ -35,6 +37,9 @@ public class IABunny : MonoBehaviour
     {
         navMeshAgent.destination = destinations1[i].transform.position;
         player = FindAnyObjectByType<PlayerMov>().gameObject;
+
+        follow = false;
+        musicPlayed = false;
         
     }
     
@@ -47,46 +52,18 @@ public class IABunny : MonoBehaviour
         if(distanceToPlayer < distanceToFollowPlayer  || followPlayer)
         {
             transform.LookAt(player.transform.position);
-            MusicManager.THIS.MusicPlay(4);
+            follow = true;           
             FollowPlayer();
         }
         if(distanceToPlayer > distanceToFollowPlayer)      
         {
             transform.LookAt(destinations1[i]);
-
+            //musicPlayed = true;
             EnemyPath();
         }
     }
 
-    
-    //IEnumerator JumpAnim()
-    //{
-    //    // Detener el NavMeshAgent durante el salto
-    //    navMeshAgent.isStopped = true;
 
-    //    // Activar la animación de salto
-    //    bunnyAnimator.SetTrigger("Jump");
-
-    //    // Sincronizar la posición del modelo con la animación (si es necesario)
-    //    float animationLength = bunnyAnimator.GetCurrentAnimatorStateInfo(0).length;
-    //    float elapsedTime = 0; 
-
-    //    Vector3 startPosition = transform.position;
-
-    //    while(elapsedTime < animationLength)
-    //    {
-    //        transform.position = bunnyAnimator.transform.position;
-    //        elapsedTime += Time.deltaTime;
-    //        yield return null;
-    //        elapsedTime = 0;
-    //    }
-
-    //    // Simula un pequeño retraso mientras se ejecuta la animación
-    //    //yield return new WaitForSeconds(animationLength);
-
-    //    // Reactivar el NavMeshAgent
-    //    navMeshAgent.isStopped = false;
-    //}
     public void EnemyPath()
     {
 
@@ -100,6 +77,7 @@ public class IABunny : MonoBehaviour
                 i++;                
                 if(distanceToPlayer < distanceToFollowPlayer || followPlayer)
                 {
+                    musicPlayed = false;
                     FollowPlayer();
                 }
             }
@@ -114,21 +92,40 @@ public class IABunny : MonoBehaviour
     public void FollowPlayer()
     {
         navMeshAgent.destination = player.transform.position;
+
+        if(follow == true && musicPlayed == false)
+        {
+            MusicManager.THIS.MusicPlay(4);
+            follow = false;
+            musicPlayed = true;
+            StartCoroutine(WaitMusicPlayed());
+        }
         //t_mision.text = "Cuidado con el e-bunny";
+    }
+
+    IEnumerator WaitMusicPlayed()
+    {
+        yield return new WaitForSeconds(0.5f);
+        musicPlayed = false;
     }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player" && player.GetComponent<Inventory>().extraLife == false)
         {
+            print("Collision con player");
             MusicManager.THIS.MusicPlay(2);
 
             if (player.GetComponent<Inventory>().mush >= 3 && player.GetComponent<Inventory>().flor >= 3 && player.GetComponent<Inventory>().hierba >= 3)
+            {
                 print("No robar los objetos, tiene 3 de cada");
+                ResetPosition();
+
+            }
 
             else
             {
                 Inventory data = player.GetComponent<Inventory>();
-                img_tMision.SetActive(true);
+                //img_tMision.SetActive(true);
                 t_mision.text = "El eBunny te ha quitado plantas, ten cuidado";
 
                 QuitarObjeto(ref data.mush, "Mushrooms", 3);
@@ -172,6 +169,8 @@ public class IABunny : MonoBehaviour
     private void ResetPosition()
     {
         transform.position = destinations1[destinations1.Length - 1].position;
+        musicPlayed = false; 
+        
     }
 
     IEnumerator MensajeBunny()
@@ -179,7 +178,7 @@ public class IABunny : MonoBehaviour
         
         yield return new WaitForSeconds(10);
         t_mision.text = "";
-        img_tMision.SetActive(false);
+        //img_tMision.SetActive(false);
 
     }
 }
