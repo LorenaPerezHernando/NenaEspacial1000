@@ -6,11 +6,16 @@ using UnityEngine.Video;
 public class VideoInicial : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
-
+    [SerializeField] Camera cameraVideo;
+    [SerializeField] Camera cameraPlayer;
+    [SerializeField] GameObject canvasJuego;
     void Start()
     {
         // Obtiene el componente VideoPlayer del objeto
         videoPlayer = GetComponent<VideoPlayer>();
+        cameraVideo.enabled = true;
+        cameraPlayer.enabled = false;
+        canvasJuego.SetActive(false);
 
         if (videoPlayer == null)
         {
@@ -29,6 +34,10 @@ public class VideoInicial : MonoBehaviour
     {
         // Desactiva el objeto después de que el video termina
         gameObject.SetActive(false);
+        cameraVideo.enabled = false;
+        cameraPlayer.enabled = true;
+        canvasJuego.SetActive(true);
+        
     }
 
     private void OnDestroy()
