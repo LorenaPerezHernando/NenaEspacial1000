@@ -15,7 +15,8 @@ public class AIChampi : MonoBehaviour
     public Transform[] destinations;
     private int i;
 
-    public int alturaDelSalto;
+    public int PosFinalSalto;
+    public int posInicialSalto;
     public int duracionsalto = 3;
 
     private void Awake()
@@ -65,8 +66,8 @@ public class AIChampi : MonoBehaviour
 
     IEnumerator Saltar(Vector3 destino)
     {
-        Vector3 saltoDestino = new Vector3(transform.position.x, alturaDelSalto, transform.position.z);
-        Vector3 positionInicial = new Vector3(transform.position.x, 0 , transform.position.z);
+        Vector3 saltoDestino = new Vector3(transform.position.x, PosFinalSalto, transform.position.z);
+        Vector3 positionInicial = new Vector3(transform.position.x, posInicialSalto , transform.position.z);
 
         float timePassed = 0; 
         while(timePassed < duracionsalto)
