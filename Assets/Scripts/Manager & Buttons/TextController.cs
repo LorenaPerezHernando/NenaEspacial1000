@@ -85,7 +85,7 @@ public class TextController : MonoBehaviour
         {
             currentMessageIndex++;
             messageText.text = MensajesIniciales[currentMessageIndex];
-            mensajeNuevoImage.enabled = false;
+            //mensajeNuevoImage.enabled = false;
         }
 
         else
@@ -105,7 +105,7 @@ public class TextController : MonoBehaviour
             
             t_inventario.enabled= true;
             imgInventario.enabled = true;
-            img_tMision.color = new Color(img_tMision.color.r, img_tMision.color.g, img_tMision.color.b, 0f);
+            
             
 
             
@@ -113,8 +113,14 @@ public class TextController : MonoBehaviour
             currentMessageIndex++;
 
             messageText.text = MensajesMisionRecolectar[currentMessageIndex];
-            img_tMision.enabled = false;
-            mensajeNuevoImage.enabled=false;
+
+            if(currentMessageIndex == MensajesMisionRecolectar.Length - 1)
+            {
+                img_tMision.enabled = false;
+
+            }
+            //mensajeNuevoImage.enabled=false;
+            //img_tMision.color = new Color(img_tMision.color.r, img_tMision.color.g, img_tMision.color.b, 0f);
         }
         else
         {
