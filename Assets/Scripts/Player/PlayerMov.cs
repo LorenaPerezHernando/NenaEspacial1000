@@ -25,24 +25,44 @@ public class PlayerMov : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
+        //Saber si se ha movido de posicion y utilizalo en el if
+        Vector3 previousPos = rb.position;
+        Vector3 newPosition = (rb.position + move * speed * Time.deltaTime);
+        rb.MovePosition(newPosition);
 
-        rb.MovePosition(rb.position + move * speed * Time.deltaTime);
+        bool isMoving = Vector3.Distance(previousPos, newPosition) > 0.01f;
+        previousPos = rb.position;
 
 
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) )
         {
             MusicManager.THIS.MusicPlay(1);
             anim.SetBool("Walk", true);
+
+            
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                anim.SetBool("Walk", false);
+                anim.SetBool("Run", true);
+
+            }
+
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                anim.SetBool("Run" , false);
+            }
         }
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || !isMoving)
         {
             anim.SetBool("Walk", false);
+
         }
 
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             //Debug.Log("Magnitude" + move.magnitude);
+            MusicManager.THIS.MusicPlay(1);
             speed = speed + dash;
             anim.SetBool("Walk", false );
             anim.SetBool("Run", true);
