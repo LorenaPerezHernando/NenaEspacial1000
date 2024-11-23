@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class IABunny : MonoBehaviour
 {
+    [SerializeField] GameObject imgAlerta;
     [SerializeField] Animator bunnyAnimator;
     [SerializeField] TextMeshProUGUI t_mision;
     //[SerializeField] GameObject img_tMision;
@@ -40,6 +41,7 @@ public class IABunny : MonoBehaviour
 
         follow = false;
         musicPlayed = false;
+        imgAlerta.SetActive(false);
         
     }
     
@@ -133,6 +135,7 @@ public class IABunny : MonoBehaviour
                 QuitarObjeto(ref data.hierba, "Hierbas", 3);
 
                 ResetPosition();
+                StartCoroutine(ImgAlerta());
                 StartCoroutine(MensajeBunny());
 
             }
@@ -146,6 +149,20 @@ public class IABunny : MonoBehaviour
             ResetPosition();
 
         }
+    }
+
+    IEnumerator ImgAlerta()
+    {
+        //imgAlerta.SetActive(true);
+        for(int i = 0; i < 3; i++)
+        {
+            Debug.Log("Img alerta");
+            imgAlerta.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            imgAlerta.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+        }
+        //yield return new WaitForSeconds(3);
     }
 
     private void QuitarObjeto(ref int objeto, string nombreObjeto, int cantidad)

@@ -8,9 +8,10 @@ public class TextController : MonoBehaviour
 {
     public int nivel;
 
-    [SerializeField] Image mensajeNuevoImage;
+    [SerializeField] Image imgCorreo;
+    [SerializeField] public TextMeshProUGUI submensajeNuevoClick;
     [SerializeField] public TextMeshProUGUI messageText;
-    [SerializeField] Image img_tMision;
+    [SerializeField] Image img_BoxMision;
     [SerializeField] TextMeshProUGUI t_inventario;
     [SerializeField] Image imgInventario;
     Inventory s_Inventory;
@@ -22,13 +23,15 @@ public class TextController : MonoBehaviour
     private void Awake()
     {
         s_Inventory = FindAnyObjectByType<Inventory>();
-        img_tMision.GetComponent<Image>();
+        img_BoxMision.GetComponent<Image>();
         
         
         
     }
     void Start()
     {
+        img_BoxMision.enabled = true;
+        submensajeNuevoClick.enabled = true;
         imgInventario.enabled = false;
         t_inventario.enabled = false;
         if (MensajesIniciales.Length > 0)
@@ -85,7 +88,8 @@ public class TextController : MonoBehaviour
         {
             currentMessageIndex++;
             messageText.text = MensajesIniciales[currentMessageIndex];
-            //mensajeNuevoImage.enabled = false;
+            imgCorreo.enabled = false;
+            
         }
 
         else
@@ -116,10 +120,12 @@ public class TextController : MonoBehaviour
 
             if(currentMessageIndex == MensajesMisionRecolectar.Length - 1)
             {
-                img_tMision.enabled = false;
+                img_BoxMision.enabled = false;
+                submensajeNuevoClick.enabled = false;
 
             }
-            //mensajeNuevoImage.enabled=false;
+            imgCorreo.enabled=false;
+            
             //img_tMision.color = new Color(img_tMision.color.r, img_tMision.color.g, img_tMision.color.b, 0f);
         }
         else
@@ -131,11 +137,15 @@ public class TextController : MonoBehaviour
     public void MisionCumplidaMensajes()
     {
 
-        img_tMision.enabled = true;
-        mensajeNuevoImage.enabled = true;
+        img_BoxMision.enabled = true;
+        imgCorreo.enabled = true;
+        submensajeNuevoClick.enabled = true;
+        
         if (currentMessageIndex < MensajesFinMision.Length - 1 && nivel == 2)
         {
-            img_tMision.color = new Color(img_tMision.color.r, img_tMision.color.g, img_tMision.color.b, 1f);
+            img_BoxMision.enabled = true;
+            //img_BoxMision.color = new Color(img_BoxMision.color.r, img_BoxMision.color.g, img_BoxMision.color.b, 1f);
+            submensajeNuevoClick.enabled = true;
             print("Mensajes fINALES");
             currentMessageIndex++;
             messageText.text = MensajesFinMision[currentMessageIndex];
@@ -146,6 +156,7 @@ public class TextController : MonoBehaviour
         {
            
             print("Pon un mensaje");
+            submensajeNuevoClick.enabled = false;
             nivel = 3;
 
         }
