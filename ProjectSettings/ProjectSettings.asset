@@ -742,7 +742,13 @@ PlayerSettings:
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
   cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
     UNet: 1
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -762,11 +768,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 46cf0783-bb3c-4501-8296-6e3b279af5db
+  cloudProjectId: deb1b4b1-57d6-4cb8-94e7-87f7b9912f56
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: MundoEspacial1000
-  organizationId: lorenanimaciones
+  projectName: Planet_Gell-Be
+  organizationId: candelagrizutti
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
