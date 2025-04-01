@@ -5,7 +5,8 @@ using UnityEngine;
 public class CameraLook : MonoBehaviour
 {
     //¿¿?¿?¿ PONER MOUSE SENSITIVITY PARA X Y PARA Y DISTINTAS ?¿?¿?¿?
-    private float mouseSensitivity = 1500f;
+    private float mouseSensitivityX = 300f;
+    private float mouseSensitivityY = 80f;
    
 
     public Transform playerBody; 
@@ -21,9 +22,9 @@ public class CameraLook : MonoBehaviour
     
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
 
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -10f, 40f); //CAPAR LA ROTACION 
