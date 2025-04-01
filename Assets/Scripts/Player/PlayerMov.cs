@@ -21,6 +21,8 @@ public class PlayerMov : MonoBehaviour
 
     void Update()
     {
+
+        #region Inputs PC
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -29,12 +31,13 @@ public class PlayerMov : MonoBehaviour
         Vector3 previousPos = rb.position;
         Vector3 newPosition = (rb.position + move * speed * Time.deltaTime);
         rb.MovePosition(newPosition);
+        #endregion
 
         bool isMoving = Vector3.Distance(previousPos, newPosition) > 0.01f;
         previousPos = rb.position;
 
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) )
+        if (Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) )
         {
             MusicManager.THIS.MusicPlay(1);
             anim.SetBool("Walk", true);
@@ -87,8 +90,14 @@ public class PlayerMov : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-        
 
+        //#region Rotacion Player
+        //float mouseX = Input.GetAxis("Mouse X");
+        //float mouseY = Input.GetAxis("Mouse Y");
+
+        //float rotationSpeed = 5f; // Ajusta la velocidad de rotación
+        //Vector3 rotation = new Vector3(0, mouseX * rotationSpeed, 0);
+        //#endregion
     }
 
     private void JumpAction()
