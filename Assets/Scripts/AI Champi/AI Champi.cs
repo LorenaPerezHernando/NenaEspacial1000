@@ -27,7 +27,8 @@ public class AIChampi : MonoBehaviour
     }
     void Start()
     {
-        navMeshAgent.destination = destinations[i].transform.position;
+        if (navMeshAgent != null && navMeshAgent.isOnNavMesh)
+            navMeshAgent.destination = destinations[i].transform.position;
 
         extraVida.SetActive (false);
         if (destinations.Length > 0)

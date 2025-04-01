@@ -30,13 +30,15 @@ public class IABunny : MonoBehaviour
     private void Awake()
     {
         t_mision = FindAnyObjectByType<TextController>().messageText;
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
 
 
     void Start()
     {
-        navMeshAgent.destination = destinations1[i].transform.position;
+        if (navMeshAgent != null && navMeshAgent.isOnNavMesh)
+            navMeshAgent.destination = destinations1[i].transform.position;
         player = FindAnyObjectByType<PlayerMov>().gameObject;
 
         follow = false;
@@ -68,8 +70,8 @@ public class IABunny : MonoBehaviour
 
     public void EnemyPath()
     {
-
-        navMeshAgent.destination = destinations1[i].position;
+        if (navMeshAgent != null && navMeshAgent.isOnNavMesh)
+            navMeshAgent.destination = destinations1[i].position;
         
         if(Vector3.Distance(transform.position, destinations1[i].position ) <= distanceToFollowPath)
         {
@@ -93,7 +95,8 @@ public class IABunny : MonoBehaviour
     }
     public void FollowPlayer()
     {
-        navMeshAgent.destination = player.transform.position;
+        if (navMeshAgent != null && navMeshAgent.isOnNavMesh)
+            navMeshAgent.destination = player.transform.position;
 
         if(follow == true && musicPlayed == false)
         {
