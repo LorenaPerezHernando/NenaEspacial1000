@@ -25,14 +25,20 @@ public class VideoFinal : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag=="Player")
-            {
+        {
             cameraPlayer.SetActive(false);
             camera.SetActive(true);
             camera.GetComponent<Camera>().enabled = true;
             canvasjuego.SetActive(false);
             canvasvideo.SetActive(true);
+            //VideoPlayer
+            Victory.gameObject.SetActive(true);
+            Victory.enabled = true; 
+            Victory.Prepare();
             Victory.Play();
         }
     }
+
+
 }
 

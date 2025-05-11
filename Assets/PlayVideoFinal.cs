@@ -11,6 +11,7 @@ public class PlayVideoFinal : MonoBehaviour
     private void Awake()
     {
         videoPlayer = GetComponent<VideoPlayer>();
+        
     }
     void Start()
     {

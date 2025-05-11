@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.33629102, g: 0.8195702, b: 0.9318551, a: 1}
+  m_IndirectSpecularColor: {r: 0.33655202, g: 0.8161745, b: 0.9302482, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 34469868}
   - component: {fileID: 34469867}
   - component: {fileID: 34469869}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sound controller
   m_TagString: SoundController
   m_Icon: {fileID: 0}
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 52217636}
   - component: {fileID: 52217635}
   - component: {fileID: 52217639}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: VideoFinal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,6 +807,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 862639087088705165, guid: 6ab5dbc8b8bc887469f7aac2b4e4689a, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 865098740345990722, guid: 6ab5dbc8b8bc887469f7aac2b4e4689a, type: 3}
       propertyPath: imgCorreo
       value: 
@@ -842,6 +846,10 @@ PrefabInstance:
     - target: {fileID: 865098740345990722, guid: 6ab5dbc8b8bc887469f7aac2b4e4689a, type: 3}
       propertyPath: MensajesFinMision.Array.data[0]
       value: "\xA1Muy bien!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 865098740345990722, guid: 6ab5dbc8b8bc887469f7aac2b4e4689a, type: 3}
+      propertyPath: MensajesFinMision.Array.data[2]
+      value: no los pierdas y ve al laboratorio.
       objectReference: {fileID: 0}
     - target: {fileID: 865098740345990722, guid: 6ab5dbc8b8bc887469f7aac2b4e4689a, type: 3}
       propertyPath: MensajesIniciales.Array.data[1]
@@ -2670,6 +2678,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Solar Panel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5354931619580669419, guid: 7c1e853eb082e465d9eccd07bac0fbd5, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5859312443170442302, guid: 7c1e853eb082e465d9eccd07bac0fbd5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2829,6 +2841,10 @@ PrefabInstance:
     - target: {fileID: 5354931619580669419, guid: 7c1e853eb082e465d9eccd07bac0fbd5, type: 3}
       propertyPath: m_Name
       value: Solar Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354931619580669419, guid: 7c1e853eb082e465d9eccd07bac0fbd5, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5859312443170442302, guid: 7c1e853eb082e465d9eccd07bac0fbd5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5359,13 +5375,13 @@ GameObject:
   m_Component:
   - component: {fileID: 994977739}
   - component: {fileID: 994977738}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Camera Video
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!20 &994977738
 Camera:
   m_ObjectHideFlags: 0
@@ -6430,6 +6446,14 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 2065303632}
+    - target: {fileID: 8017027486471723042, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
+      propertyPath: dash
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017027486471723042, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8523221151580889594, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7082,6 +7106,7 @@ GameObject:
   - component: {fileID: 1566308293}
   - component: {fileID: 1566308294}
   - component: {fileID: 1566308295}
+  - component: {fileID: 1566308296}
   m_Layer: 0
   m_Name: VideoFinal
   m_TagString: Untagged
@@ -7111,7 +7136,7 @@ VideoPlayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566308292}
-  m_Enabled: 1
+  m_Enabled: 0
   m_VideoClip: {fileID: 32900000, guid: 480e7126fc98420419fca4f579e70f8f, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
@@ -7152,7 +7177,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569b34d2ebc5f894d8a4f95294aa3f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 0}
+  videoPlayer: {fileID: 1566308294}
+--- !u!81 &1566308296
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566308292}
+  m_Enabled: 1
 --- !u!1001 &1577268440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7238,7 +7271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1636494943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8032,7 +8065,7 @@ GameObject:
   - component: {fileID: 1776989715}
   - component: {fileID: 1776989714}
   - component: {fileID: 1776989713}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9261,6 +9294,10 @@ PrefabInstance:
     - target: {fileID: 832417352243783934, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 166.44518
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217571792895343687, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2343435168826803660, guid: ac4b5eb09a7c7504eb7381c2d603bb93, type: 3}
       propertyPath: m_LocalScale.x
