@@ -22,18 +22,25 @@ public class PlayVideoInicial : MonoBehaviour
     {
         string videoPath = Path.Combine(Application.streamingAssetsPath, "Cinematicaintro.mp4");
 
-        if (File.Exists(videoPath))
-        {
-            videoPlayer.source = VideoSource.Url;
+        if(Application.platform == RuntimePlatform.WebGLPlayer || File.Exists(videoPath))
+
+            {
+                videoPlayer.source = VideoSource.Url;
+
+#if UNITY_WEBGL && !UNITY_EDITOR
             videoPlayer.url = videoPath;
-            videoPlayer.Prepare();  // Comienza a preparar el video
+#else
+            videoPlayer.url = "file://" + videoPath;
+#endif
+
+            //videoPlayer.url = videoPath;
+            videoPlayer.Prepare();  
 
             Debug.Log(" Preparando video...");
 
-            // Espera a que se cargue
             while (!videoPlayer.isPrepared)
             {
-                yield return null; // Espera 1 frame
+                yield return null; 
             }
 
             Debug.Log("Video preparado. Reproduciendo...");

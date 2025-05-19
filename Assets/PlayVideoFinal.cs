@@ -15,21 +15,41 @@ public class PlayVideoFinal : MonoBehaviour
     }
     void Start()
     {
-        // Ruta del video en StreamingAssets
-        string videoPath = Path.Combine(Application.streamingAssetsPath, "Mili-victory-2.mp4");
+        StartCoroutine(PrepareAndPlayVideo());
+    }
 
-        // Asegurarse de que el archivo exista
-        if (File.Exists(videoPath))
+    IEnumerator PrepareAndPlayVideo()
+    {
+        string videoPath = Path.Combine(Application.streamingAssetsPath, "Cinematicaintro.mp4");
+
+        if (Application.platform == RuntimePlatform.WebGLPlayer || File.Exists(videoPath))
+
         {
-            // Asignar el video al VideoPlayer
-            videoPlayer.url = videoPath;
+            videoPlayer.source = VideoSource.Url;
 
-            // Reproducir el video
+#if UNITY_WEBGL && !UNITY_EDITOR
+            videoPlayer.url = videoPath;
+#else
+            videoPlayer.url = "file://" + videoPath;
+#endif
+
+            //videoPlayer.url = videoPath;
+            videoPlayer.Prepare();
+
+            Debug.Log(" Preparando video...");
+
+            while (!videoPlayer.isPrepared)
+            {
+                yield return null;
+            }
+
+            Debug.Log("Video preparado. Reproduciendo...");
             videoPlayer.Play();
         }
         else
         {
-            Debug.LogError("Video no encontrado en la ruta: " + videoPath);
+            Debug.LogError(" Video no encontrado en la ruta: " + videoPath);
         }
     }
 }
+

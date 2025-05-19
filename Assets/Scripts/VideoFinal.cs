@@ -5,7 +5,7 @@ using UnityEngine.Video;
 
 public class VideoFinal : MonoBehaviour
 {
-    public GameObject camera;
+    public GameObject cam;
     public GameObject cameraPlayer;
     public VideoPlayer Victory;
     public GameObject canvasjuego;
@@ -13,7 +13,7 @@ public class VideoFinal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     //camera.SetActive(false);   
+     //cam.SetActive(false);   
     }
 
     // Update is called once per frame
@@ -27,8 +27,8 @@ public class VideoFinal : MonoBehaviour
         if (other.gameObject.tag=="Player")
         {
             cameraPlayer.SetActive(false);
-            camera.SetActive(true);
-            camera.GetComponent<Camera>().enabled = true;
+            cam.SetActive(true);
+            cam.GetComponent<Camera>().enabled = true;
             canvasjuego.SetActive(false);
             canvasvideo.SetActive(true);
             //VideoPlayer
