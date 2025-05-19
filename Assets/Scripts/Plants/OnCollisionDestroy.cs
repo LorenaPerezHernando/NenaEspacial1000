@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class OnCollisionDestroy : MonoBehaviour
 {
+    [SerializeField] MusicManager musicManager;
     private GameObject player;
     [SerializeField] Animator playerAnim;
     public int tiempoDeEsperaParaActivarObjeto = 10;
@@ -16,6 +17,7 @@ public class OnCollisionDestroy : MonoBehaviour
 
     private void Awake()
     {
+        musicManager = GameObject.FindGameObjectWithTag("SoundController").GetComponent<MusicManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerAnim = player.GetComponentInChildren<Animator>();
         thisRenderer = GetComponentInChildren<Renderer>();
@@ -91,9 +93,9 @@ public class OnCollisionDestroy : MonoBehaviour
     {
        // Animator playerAnim = player.GetComponent<Animator>();
         playerAnim.SetTrigger("Collect");
-        player.GetComponent<PlayerMov>().enabled = false;
+        player.GetComponent<PlayerMovement>().enabled = false;
         yield return new WaitForSeconds(1); //Time to collect
-        player.GetComponent<PlayerMov>().enabled = true;
+        player.GetComponent<PlayerMovement>().enabled = true;
     }
 
 
@@ -109,7 +111,7 @@ public class OnCollisionDestroy : MonoBehaviour
 
     IEnumerator  DesactivarObjeto()
     {
-        MusicManager.THIS.MusicPlay(0);
+        musicManager.MusicPlay(0);
         yield return new WaitForSeconds(0.1f);
         children.SetActive(false);
         thisCollider.enabled = false;
