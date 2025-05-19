@@ -110,7 +110,7 @@ public class OnCollisionDestroy : MonoBehaviour
     IEnumerator  DesactivarObjeto()
     {
         MusicManager.THIS.MusicPlay(0);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.1f);
         children.SetActive(false);
         thisCollider.enabled = false;
         //thisRenderer.enabled = false;

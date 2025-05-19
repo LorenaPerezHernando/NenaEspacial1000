@@ -36,57 +36,50 @@ public class PlayerMov : MonoBehaviour
         bool isMoving = Vector3.Distance(previousPos, newPosition) > 0.01f;
         previousPos = rb.position;
 
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            anim.SetTrigger("Jump"); anim.SetBool("Walk", false); anim.SetBool("Run", false) ;
+            JumpAction();
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) )
+        }
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) )
         {
             MusicManager.THIS.MusicPlay(1);
             anim.SetBool("Walk", true);
-
-            
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                anim.SetBool("Walk", false);
-                anim.SetBool("Run", true);
-
-            }
 
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
                 anim.SetBool("Run" , false);
             }
+            
         }
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || !isMoving)
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow) || !isMoving)
         {
             anim.SetBool("Walk", false);
 
         }
 
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             //Debug.Log("Magnitude" + move.magnitude);
             MusicManager.THIS.MusicPlay(1);
-            speed = speed + dash;
+            speed = dash;
             anim.SetBool("Walk", false );
             anim.SetBool("Run", true);
 
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speed = speed - dash;
+            dash = speed ;
             anim.SetBool("Run", false) ;
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            anim.SetTrigger("Jump");
-            JumpAction();
-
-        }
+        
         
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape)) 
         {
             SceneManager.LoadScene(0);
         }
@@ -107,6 +100,11 @@ public class PlayerMov : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Terrain")
+            isGrounded=true;
+    }
+    private void OnCollisionStay(Collision collision)
     {
         if(collision.gameObject.tag == "Terrain")
             isGrounded=true;
