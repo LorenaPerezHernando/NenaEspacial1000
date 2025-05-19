@@ -84,13 +84,6 @@ public class PlayerMov : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        //#region Rotacion Player
-        //float mouseX = Input.GetAxis("Mouse X");
-        //float mouseY = Input.GetAxis("Mouse Y");
-
-        //float rotationSpeed = 5f; // Ajusta la velocidad de rotación
-        //Vector3 rotation = new Vector3(0, mouseX * rotationSpeed, 0);
-        //#endregion
     }
 
     private void JumpAction()

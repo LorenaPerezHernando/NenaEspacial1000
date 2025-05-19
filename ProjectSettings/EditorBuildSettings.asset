@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu Inicial.unity
     guid: dd9b4386ba01d264eb1ed0c6dcdc66d4
   - enabled: 1
-    path: Assets/Scenes/Candela.unity
+    path: Assets/Scenes/Game Scene.unity
     guid: 60e36709020e9e44291ce010303ae04a
   m_configObjects: {}

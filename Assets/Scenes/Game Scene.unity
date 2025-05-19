@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45332a9108addda4f8ab05a6843f94f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 994977736}
+  cam: {fileID: 0}
   cameraPlayer: {fileID: 652570420}
   Victory: {fileID: 1566308294}
   canvasjuego: {fileID: 1392780562}
@@ -6374,14 +6374,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1510206725590350603, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: 7e6cee9058a044649952ec019f18528e, type: 3}
-    - target: {fileID: 2171969349735240452, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2954709906626544062, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -6426,38 +6418,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7671830563114687649, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832887154329776576, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
-      propertyPath: flor
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832887154329776576, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
-      propertyPath: mush
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832887154329776576, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
-      propertyPath: hierba
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017027486471723042, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 2065303632}
-    - target: {fileID: 8017027486471723042, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
-      propertyPath: dash
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017027486471723042, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
-      propertyPath: speed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8523221151580889594, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9122527774012455426, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
+      propertyPath: musicManager
+      value: 
+      objectReference: {fileID: 34469869}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8888,11 +8856,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3805318389859771188, guid: 24457fdf8e66c3c49b7599931e0fdcb2, type: 3}
   m_PrefabInstance: {fileID: 74676987}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2065303632 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1510206725590350603, guid: b97833368ac253a45b94308db5cbacb0, type: 3}
-  m_PrefabInstance: {fileID: 1245093516}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2072450595
 PrefabInstance:
