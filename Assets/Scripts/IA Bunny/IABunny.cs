@@ -31,6 +31,7 @@ public class IABunny : MonoBehaviour
     {
         t_mision = FindAnyObjectByType<TextController>().messageText;
         navMeshAgent = GetComponent<NavMeshAgent>();
+        player = FindAnyObjectByType<PlayerMovement>().gameObject;
     }
 
 
@@ -39,11 +40,11 @@ public class IABunny : MonoBehaviour
     {
         if (navMeshAgent != null && navMeshAgent.isOnNavMesh)
             navMeshAgent.destination = destinations1[i].transform.position;
-        player = FindAnyObjectByType<PlayerMov>().gameObject;
 
         follow = false;
         musicPlayed = false;
         imgAlerta.SetActive(false);
+        ImageextraVida.SetActive(false);
         
     }
     

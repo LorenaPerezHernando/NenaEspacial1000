@@ -23,7 +23,7 @@ public class AIChampi : MonoBehaviour
     {
         render = GetComponentInChildren<Renderer>();
         navMeshAgent = GetComponent<NavMeshAgent>();
-        player = FindAnyObjectByType<PlayerMov>().gameObject;
+        player = FindAnyObjectByType<PlayerMovement>().gameObject;
     }
     void Start()
     {
@@ -49,7 +49,6 @@ public class AIChampi : MonoBehaviour
         transform.position = destino;
         navMeshAgent.enabled = true; // Reactiva el agente
 
-        // Inicia el salto
         yield return StartCoroutine(Saltar(destino));
 
         // Avanza al siguiente destino si hay más destinos disponibles
