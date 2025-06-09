@@ -8,6 +8,7 @@ using UnityEngine.Video;
 public class PlayVideoInicial : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
+    [SerializeField] private GameObject _blackScreen;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class PlayVideoInicial : MonoBehaviour
     void  Start()
     {
         StartCoroutine(PrepareAndPlayVideo());
+
 
     }
     IEnumerator PrepareAndPlayVideo()
@@ -44,6 +46,7 @@ public class PlayVideoInicial : MonoBehaviour
             }
 
             Debug.Log("Video preparado. Reproduciendo...");
+            _blackScreen.SetActive(false);
             videoPlayer.Play();
         }
         else

@@ -7,6 +7,8 @@ using UnityEngine.Video;
 public class PlayVideoFinal : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
+    private string _videoFileName = "Mili-victory-2.mp4";
+    [SerializeField] private GameObject _blackScreen;
 
     private void Awake()
     {
@@ -15,12 +17,19 @@ public class PlayVideoFinal : MonoBehaviour
     }
     void Start()
     {
+        //StartCoroutine(PrepareAndPlayVideo());
+
+    }
+    public void SetAndPlay(string videoFileName)
+    {
+        _videoFileName = videoFileName;
+        _blackScreen?.SetActive(true); 
         StartCoroutine(PrepareAndPlayVideo());
     }
 
     IEnumerator PrepareAndPlayVideo()
     {
-        string videoPath = Path.Combine(Application.streamingAssetsPath, "Cinematicaintro.mp4");
+        string videoPath = Path.Combine(Application.streamingAssetsPath, _videoFileName);
 
         if (Application.platform == RuntimePlatform.WebGLPlayer || File.Exists(videoPath))
 
@@ -44,6 +53,7 @@ public class PlayVideoFinal : MonoBehaviour
             }
 
             Debug.Log("Video preparado. Reproduciendo...");
+            _blackScreen?.SetActive(false);
             videoPlayer.Play();
         }
         else

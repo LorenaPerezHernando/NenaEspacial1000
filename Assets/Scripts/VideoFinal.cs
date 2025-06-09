@@ -5,18 +5,16 @@ using UnityEngine.Video;
 
 public class VideoFinal : MonoBehaviour
 {
+    public PlayVideoFinal s_playVideoFinal;
     public GameObject cam;
     public GameObject cameraPlayer;
     public VideoPlayer Victory;
     public GameObject canvasjuego;
     public GameObject canvasvideo;
-    // Start is called before the first frame update
     void Start()
     {
      //cam.SetActive(false);   
     }
-
-    // Update is called once per frame
     void Update()
     {
        
@@ -33,9 +31,10 @@ public class VideoFinal : MonoBehaviour
             canvasvideo.SetActive(true);
             //VideoPlayer
             Victory.gameObject.SetActive(true);
-            Victory.enabled = true; 
-            Victory.Prepare();
-            Victory.Play();
+            Victory.enabled = true;
+
+            s_playVideoFinal.SetAndPlay("Mili-victory-2.mp4");
+            
         }
     }
 
