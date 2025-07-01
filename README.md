@@ -18,5 +18,8 @@ PC (Mov con teclas ASWD o flechas, y ratón)
 ## 🐾 Estado del proyecto
 En desarrollo (versión demo / prototipo jugable)
 
-## 🎨 Autores 
+## 🎨 Autores y enlaces
 Arte creado por: Candela Grizutti https://www.behance.net/candelagrizutti
+Programación por: Lorena Pérez https://github.com/LorenaPerezHernando
+
+Juego en : https://lorenaperez.itch.io/planet-gell-be
