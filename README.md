@@ -4,7 +4,7 @@
 Tu tarea como ayudante del laboratorio es muy importante : recolectar muestras únicas, ayudar a los científicos y, sobre todo, ¡proteger tus hallazgos de los juguetones —y a veces hambrientos— habitantes del planeta!
 ### Play it in Itch.io : https://lorenaperez.itch.io/planet-gell-be
 
-##Género
+## Género
 TPS + RPG 
 
 ## Plataforma
@@ -17,3 +17,6 @@ PC (Mov con teclas ASWD o flechas, y ratón)
 
 ## 🐾 Estado del proyecto
 En desarrollo (versión demo / prototipo jugable)
+
+## 🎨 Autores 
+Arte creado por: Candela Grizutti https://www.behance.net/candelagrizutti
